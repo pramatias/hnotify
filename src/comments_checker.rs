@@ -77,7 +77,9 @@ pub fn send_system_notification(new_comments: &[Comment]) {
 }
 
 fn send_notification(title: &str, message: &str) {
-    Command::new("notify-send -t 50000000")
+    Command::new("notify-send")
+        .arg(-t)
+        .arg(50000000)
         .arg(title)
         .arg(message)
         .spawn()
